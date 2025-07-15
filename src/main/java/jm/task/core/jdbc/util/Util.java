@@ -14,6 +14,7 @@ import java.util.Properties;
 
 public class Util {
 
+    //JDBS Connection
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/mydbtest";
     private static final String DB_USERNAME = "root";
@@ -32,6 +33,7 @@ public class Util {
         return connection;
     }
 
+    //Hybernate Connection
     private static SessionFactory sessionFactory;
 
     public static SessionFactory getSessionFactory() {
@@ -44,8 +46,8 @@ public class Util {
                 settings.put(Environment.URL, "jdbc:mysql://localhost:3306/mydbtest");
                 settings.put(Environment.USER, "root");
                 settings.put(Environment.PASS, "402770");
-                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL");
-                settings.put(Environment.SHOW_SQL, "true");
+                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
+                settings.put(Environment.SHOW_SQL, "false");
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
                 configuration.setProperties(settings);
